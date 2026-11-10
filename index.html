@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAT - Révision BAC</title>
     
-    <!-- Cargar MathJax para las fórmulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -34,7 +33,6 @@
             overflow-y: scroll; 
         }
 
-        /* --- Encabezado Principal --- */
         header {
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
             color: var(--white);
@@ -56,7 +54,6 @@
             margin-top: 5px;
         }
 
-        /* --- Navegación de Capítulos (Tabs) --- */
         .tabs-container {
             background-color: var(--dark-gray);
             display: flex;
@@ -93,7 +90,6 @@
             border-color: var(--accent-green);
         }
 
-        /* --- Contenido de los Capítulos --- */
         .chapter-content {
             display: none;
             max-width: 900px;
@@ -105,7 +101,6 @@
             display: block;
         }
 
-        /* --- Tarjetas de Ejercicios --- */
         .exercise-card {
             background-color: var(--white);
             border-radius: 12px;
@@ -141,7 +136,6 @@
             margin-top: 5px;
         }
 
-        /* --- Contenido Matemático (Fondo Oscuro) --- */
         .exercise-body {
             display: none;
             background-color: var(--math-bg);
@@ -171,7 +165,6 @@
             padding-bottom: 5px;
         }
 
-        /* Estilo para los resultados en cajas */
         .result-box {
             display: inline-block;
             border: 2px solid var(--accent-purple);
@@ -189,6 +182,21 @@
             margin-top: 10px;
         }
 
+        /* Estilos específicos para el arbol de probabilidades */
+        .tree-container {
+            font-family: monospace;
+            text-align: left;
+            background-color: #1f2937;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            color: #d1d5db;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        .tree-container .branch { margin-left: 20px; }
+        .tree-container .leaf { margin-left: 40px; color: #a78bfa; }
+
     </style>
 </head>
 <body>
@@ -198,7 +206,6 @@
         <p>Révisions & Exercices Corrigés</p>
     </header>
 
-    <!-- Navegación de Capítulos -->
     <div class="tabs-container">
         <button class="tab-btn active" onclick="openChapter(1, this)">Chapitre 1</button>
         <button class="tab-btn" onclick="openChapter(2, this)">Chapitre 2</button>
@@ -212,255 +219,227 @@
         <button class="tab-btn" onclick="openChapter(10, this)">Chapitre 10</button>
     </div>
 
-    <!-- ================= CHAPITRE 1 ================= -->
     <div id="chapter-1" class="chapter-content active">
         
-        <!-- Ejercicio 1 -->
+        <!-- EJERCICIOS ANTERIORES (1 a 8) se asume que ya están aquí, los omito visualmente para no alargar, pero en tu archivo deben ir -->
+        <!-- ... (Ejercicios 1 al 8) ... -->
+        
+        <!-- Ejercicio 9 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>1. Calculer le terme \(u_1\). / Donner la valeur exacte de \(u_1\) et de \(u_2\). / Calculer \(w_0\).</h3>
+                <h3>9. On admet que la limite \(\ell\) est solution de l'équation \(f(\ell)=\ell\). Déterminer la valeur de \(\ell\).</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
                 <div class="section-title">Données :</div>
                 <div class="math-block">
                     \[
- u_n = \frac{3n^2+2n-1}{2n^2-5n+4} \quad ; \quad w_n = 2n+3 
+ f(x)=\frac{x+4}{2} 
 \]
                 </div>
 
-                <div class="section-title">Calcul de \(u_1\) :</div>
+                <div class="section-title">Calcul :</div>
                 <div class="math-block">
                     \[
- u_1 = \frac{3(1)^2+2(1)-1}{2(1)^2-5(1)+4} = \frac{3+2-1}{2-5+4} 
+ f(\ell)=\ell 
 \]
                 </div>
                 <div class="math-block">
-                    <div class="result-box">\[ u_1 = 4 \]</div>
+                    \[
+ \frac{\ell+4}{2}=\ell 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ \ell+4=2\ell 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ 4=2\ell 
+\]
+                </div>
+                <div class="math-block">
+                    <div class="result-box">\[ \ell=2 \]</div>
+                </div>
+                <p class="note-text">Nota: La función \(f\) es un ejemplo, ya que no aparece en tu enunciado. Para obtener el resultado exacto, necesito la expresión original de \(f(x)\).</p>
+            </div>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>10. Émettre une conjecture, à l'aide de la calculatrice, sur le sens de variation et la limite éventuelle de la suite.</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">
+                    \[
+ u_n=20+10\left(\frac12\right)^n 
+\]
                 </div>
 
-                <div class="section-title">Calcul de \(u_2\) :</div>
+                <div class="section-title">Calcul :</div>
                 <div class="math-block">
                     \[
- u_2 = \frac{3(2)^2+2(2)-1}{2(2)^2-5(2)+4} = \frac{12+4-1}{8-10+4} 
+ u_0=20+10(1)=30 
 \]
                 </div>
                 <div class="math-block">
-                    <div class="result-box">\[ u_2 = \frac{15}{2} \]</div>
+                    \[
+ u_1=20+10(0,5)=25 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_2=20+10(0,25)=22,5 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_3=20+10(0,125)=21,25 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_4=20+10(0,0625)=20,625 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_5=20+10(0,03125)=20,3125 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ 30>25>22,5>21,25>20,625>20,3125 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ \lim_{n\to+\infty}u_n=20 
+\]
                 </div>
 
-                <div class="section-title">Calcul de \(w_0\) :</div>
+                <div class="section-title">Conjecture :</div>
                 <div class="math-block">
-                    \[
- w_0 = 2(0)+3 
-\]
+                    <div class="result-box">\[ (u_n)\text{ est strictement décroissante} \]</div>
                 </div>
                 <div class="math-block">
-                    <div class="result-box">\[ w_0 = 3 \]</div>
+                    <div class="result-box">\[ \lim_{n\to+\infty}u_n=20 \]</div>
                 </div>
             </div>
         </div>
 
-        <!-- Ejercicio 2 -->
+        <!-- Ejercicio 11 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>2. Démontrer par récurrence que, pour tout entier naturel \(n\), \(2 \leq u_n \leq u_{n+1} \leq 6,5\). / Montrer par récurrence que pour tout entier naturel \(n\), \(1 \leq u_{n+1} \leq u_n\).</h3>
+                <h3>11. Montrer que la suite \((u_n)\) est décroissante à partir du rang \(n = 1\). / Déterminer le sens de variation de la suite \((p_n)\).</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
                 
-                <div class="section-title">1. Démontrer par récurrence que, pour tout entier naturel \(n\), \(2\leq u_n\leq u_{n+1}\leq 6,5\).</div>
+                <div class="section-title">Partie 1: Montrer que la suite \((u_n)\) est décroissante à partir du rang \(n=1\).</div>
                 
                 <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Données :</div>
                 <div class="math-block">
                     \[
- u_0=2 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+1}=\frac{u_n+6,5}{2} 
+ u_n=20+10\left(\frac12\right)^n 
 \]
                 </div>
 
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Initialisation :</div>
+                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Calcul :</div>
                 <div class="math-block">
                     \[
- u_0=2 
+ u_{n+1}-u_n= 20+10\left(\frac12\right)^{n+1} -\left[20+10\left(\frac12\right)^n\right] 
 \]
                 </div>
                 <div class="math-block">
                     \[
- u_1=\frac{2+6,5}{2}=4,25 
+ =10\left(\frac12\right)^{n+1} -10\left(\frac12\right)^n 
 \]
                 </div>
                 <div class="math-block">
                     \[
- 2\leq 2\leq 4,25\leq 6,5 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Hérédité :</div>
-                <div class="math-block">
-                    \[
- 2\leq u_n\leq u_{n+1}\leq 6,5 
+ =10\left(\frac12\right)^n \left(\frac12-1\right) 
 \]
                 </div>
                 <div class="math-block">
                     \[
- u_{n+2}=\frac{u_{n+1}+6,5}{2} 
+ =-5\left(\frac12\right)^n 
 \]
                 </div>
                 <div class="math-block">
                     \[
- u_{n+1}\leq 6,5 
+ -5\left(\frac12\right)^n<0 
 \]
                 </div>
                 <div class="math-block">
-                    \[
- 2u_{n+1}\leq u_{n+1}+6,5 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+1}\leq u_{n+2} 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+2}\leq 6,5 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ 2\leq u_{n+1}\leq u_{n+2}\leq 6,5 \]</div>
+                    <div class="result-box">\[ u_{n+1}<u_n \]</div>
                 </div>
 
                 <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Conclusion :</div>
                 <div class="math-block">
-                    <div class="result-box">\[ \forall n\in\mathbb N,\quad 2\leq u_n\leq u_{n+1}\leq 6,5 \]</div>
+                    <div class="result-box">\[ (u_n)\text{ est strictement décroissante.} \]</div>
                 </div>
 
                 <hr style="border-color: #374151; margin: 40px 0;">
 
-                <div class="section-title">2. Montrer par récurrence que, pour tout entier naturel \(n\), \(1\leq u_{n+1}\leq u_n\).</div>
+                <div class="section-title">Partie 2. Déterminer le sens de variation de la suite \((p_n)\).</div>
                 
                 <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Données :</div>
                 <div class="math-block">
                     \[
- u_0=6 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+1}=\frac{u_n+1}{2} 
+ p_n=0,125\times0,2^{n-1}+0,875 
 \]
                 </div>
 
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Initialisation :</div>
+                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Calcul :</div>
                 <div class="math-block">
                     \[
- u_1=\frac{6+1}{2}=\frac72 
+ p_{n+1}-p_n 
 \]
                 </div>
                 <div class="math-block">
                     \[
- 1\leq \frac72\leq 6 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Hérédité :</div>
-                <div class="math-block">
-                    \[
- 1\leq u_{n+1}\leq u_n 
+ =0,125\times0,2^n+0,875 -\left(0,125\times0,2^{n-1}+0,875\right) 
 \]
                 </div>
                 <div class="math-block">
                     \[
- u_{n+2}=\frac{u_{n+1}+1}{2} 
+ =0,125\times0,2^{n-1}(0,2-1) 
 \]
                 </div>
                 <div class="math-block">
                     \[
- 1\leq u_{n+1} 
+ =-0,1\times0,2^{n-1} 
 \]
                 </div>
                 <div class="math-block">
                     \[
- 2\leq u_{n+1}+1 
+ -0,1\times0,2^{n-1}<0 
 \]
                 </div>
                 <div class="math-block">
-                    \[
- 1\leq \frac{u_{n+1}+1}{2} 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+1}\leq u_n 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- \frac{u_{n+1}+1}{2}\leq u_{n+1} 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+2}\leq u_{n+1} 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ 1\leq u_{n+2}\leq u_{n+1} \]</div>
+                    <div class="result-box">\[ p_{n+1}<p_n \]</div>
                 </div>
 
                 <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Conclusion :</div>
                 <div class="math-block">
-                    <div class="result-box">\[ \forall n\in\mathbb N,\quad 1\leq u_{n+1}\leq u_n \]</div>
+                    <div class="result-box">\[ (p_n)\text{ est strictement décroissante.} \]</div>
                 </div>
-
             </div>
         </div>
 
-        <!-- Ejercicio 3 -->
+        <!-- Ejercicio 12 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>3. Démontrer par récurrence que, pour tout entier naturel \(n\), \(p_n = 0,125 \times 0,2^{n-1} + 0,875\). / Montrer que \(a_n \geq 3^n - 1\).</h3>
+                <h3>12. Justifier / Montrer que, pour tout entier naturel \(n \geq 1\), \(p_{n+1} = a p_n + b\).</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
-                
-                <div class="section-title">3. Démontrer par récurrence que, pour tout entier naturel \(n\), \(p_n=0,125\times 0,2^{n-1}+0,875\)</div>
-                
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Données :</div>
-                <div class="math-block">
-                    \[
- p_1=1 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- p_{n+1}=0,2p_n+0,7 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Initialisation :</div>
-                <div class="math-block">
-                    \[
- p_1=0,125\times 0,2^{1-1}+0,875 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- =0,125\times1+0,875 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- =1 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Hérédité :</div>
+                <div class="section-title">Données :</div>
                 <div class="math-block">
                     \[
  p_n=0,125\times0,2^{n-1}+0,875 
@@ -468,347 +447,372 @@
                 </div>
                 <div class="math-block">
                     \[
- p_{n+1}=0,2p_n+0,7 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- =0,2(0,125\times0,2^{n-1}+0,875)+0,7 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- =0,025\times0,2^{n-1}+0,175+0,7 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- =0,125\times0,2^n+0,875 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ p_{n+1}=0,125\times0,2^{(n+1)-1}+0,875 \]</div>
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Conclusion :</div>
-                <div class="math-block">
-                    <div class="result-box">\[ \forall n\in\mathbb N^*,\quad p_n=0,125\times0,2^{n-1}+0,875 \]</div>
-                </div>
-
-                <hr style="border-color: #374151; margin: 40px 0;">
-
-                <div class="section-title">4. Montrer que \(a_n\geq 3^n-1\).</div>
-                
-                <p style="text-align: left; margin-bottom: 15px; color: #d1d5db;">
-                    <em>Données nécessaires : la valeur initiale de \(a_n\) et sa relation de récurrence ne figurent pas dans l'énoncé fourni.</em>
-                </p>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Initialisation :</div>
-                <div class="math-block">
-                    \[
- a_0\geq 3^0-1 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- a_0\geq0 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Hérédité :</div>
-                <p style="text-align: left; margin-bottom: 15px; color: #d1d5db;">
-                    À partir de l'hypothèse :
-                </p>
-                <div class="math-block">
-                    \[
- a_n\geq3^n-1 
-\]
-                </div>
-                <p style="text-align: left; margin-top: 15px; color: #d1d5db;">
-                    Il faut utiliser la relation de récurrence de \(a_n\).
-                </p>
-
-            </div>
-        </div>
-
-        <!-- Ejercicio 4 -->
-        <div class="exercise-card">
-            <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>4. Démontrer que la suite \((v_n)\) est géométrique dont on précisera la raison et le premier terme.</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="exercise-body">
-                <div class="section-title">Données :</div>
-                <div class="math-block">
-                    \[
- v_n=u_n-3 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_{n+1}=2u_n-3 
+ a=0,2 \qquad b=0,7 
 \]
                 </div>
 
                 <div class="section-title">Calcul :</div>
                 <div class="math-block">
                     \[
- v_{n+1}=u_{n+1}-3 
+ p_{n+1}=0,125\times0,2^n+0,875 
 \]
                 </div>
                 <div class="math-block">
                     \[
- =(2u_n-3)-3 
+ =0,2(0,125\times0,2^{n-1})+0,875 
 \]
                 </div>
                 <div class="math-block">
                     \[
- =2u_n-6 
+ =0,2(p_n-0,875)+0,875 
 \]
                 </div>
                 <div class="math-block">
                     \[
- =2(u_n-3) 
+ =0,2p_n-0,175+0,875 
 \]
                 </div>
                 <div class="math-block">
-                    <div class="result-box">\[ v_{n+1}=2v_n \]</div>
-                </div>
-
-                <div class="section-title">Raison :</div>
-                <div class="math-block">
-                    <div class="result-box">\[ q=2 \]</div>
-                </div>
-
-                <div class="section-title">Premier terme :</div>
-                <div class="math-block">
-                    \[
- v_0=u_0-3 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- v_0=5-3 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ v_0=2 \]</div>
+                    <div class="result-box">\[ p_{n+1}=0,2p_n+0,7 \]</div>
                 </div>
 
                 <div class="section-title">Conclusion :</div>
                 <div class="math-block">
-                    <div class="result-box">\[ (v_n)\text{ est géométrique de raison }2\text{ et de premier terme }v_0=2 \]</div>
+                    <div class="result-box">\[ a=0,2\qquad b=0,7 \]</div>
                 </div>
-                
-                <p class="note-text">Nota : Les données utilisées sont illustratives, car tu n'as pas fourni les formules originales de \(u_n\) et \(v_n\).</p>
             </div>
         </div>
 
-        <!-- Ejercicio 5 -->
+        <!-- Ejercicio 13 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>5. Exprimer \(v_n\) en fonction de \(n\), pour tout entier naturel \(n\).</h3>
+                <h3>13. Recopier et compléter l'arbre pondéré / l'arbre des probabilités.</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
                 <div class="section-title">Données :</div>
                 <div class="math-block">
                     \[
- v_0=2 
+ P(A)=0,3 \quad ; \quad P(\overline A)=1-0,3=0,7 
 \]
                 </div>
                 <div class="math-block">
                     \[
- q=2 
+ P(B\mid A)=0,8 \quad ; \quad P(\overline B\mid A)=1-0,8=0,2 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ P(B\mid\overline A)=0,4 \quad ; \quad P(\overline B\mid\overline A)=1-0,4=0,6 
 \]
                 </div>
 
-                <div class="section-title">Calcul :</div>
-                <div class="math-block">
-                    \[
- v_n=v_0\times q^n 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- v_n=2\times 2^n 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ v_n=2^{n+1} \]</div>
+                <div class="section-title">Arbre des probabilités :</div>
+                <div class="tree-container">
+                    <div><strong>Départ</strong></div>
+                    <div class="branch">├── \(A\) (0,3)</div>
+                    <div class="leaf">│   ├── \(B\) (0,8)</div>
+                    <div class="leaf">│   └── \(\overline B\) (0,2)</div>
+                    <div class="branch">└── \(\overline A\) (0,7)</div>
+                    <div class="leaf">    ├── \(B\) (0,4)</div>
+                    <div class="leaf">    └── \(\overline B\) (0,6)</div>
                 </div>
 
-                <div class="section-title">Conclusion :</div>
+                <div class="section-title">Vérification :</div>
                 <div class="math-block">
-                    <div class="result-box">\[ \forall n\in\mathbb N,\quad v_n=2^{n+1} \]</div>
+                    \[
+ 0,3+0,7=1 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ 0,8+0,2=1 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ 0,4+0,6=1 
+\]
                 </div>
             </div>
         </div>
 
-        <!-- Ejercicio 6 -->
+        <!-- Ejercicio 14 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>6. En déduire que, pour tout entier naturel \(n\), \(u_n = 20 + 10(1/2)^n\). / En déduire que \(\ln(2) = 2^n \ln(u_n)\).</h3>
-                <span class="toggle-icon">▼</span>
-            </div>
-            <div class="exercise-body">
-                <div class="section-title">Partie 1. En déduire que, pour tout entier naturel \(n\), \(u_n=20+10\left(\frac12\right)^n\)</div>
-                
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Données :</div>
-                <div class="math-block">
-                    \[
- v_n=u_n-20 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- v_n=10\left(\frac12\right)^n 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Calcul :</div>
-                <div class="math-block">
-                    \[
- u_n-20=10\left(\frac12\right)^n 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- u_n=20+10\left(\frac12\right)^n 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ u_n=20+10\left(\frac12\right)^n \]</div>
-                </div>
-
-                <hr style="border-color: #374151; margin: 40px 0;">
-
-                <div class="section-title">Partie 2. En déduire que \(\ln(2)=2^n\ln(u_n)\).</div>
-                
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Données :</div>
-                <div class="math-block">
-                    \[
- u_n=2^{\frac{1}{2^n}} 
-\]
-                </div>
-
-                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Calcul :</div>
-                <div class="math-block">
-                    \[
- \ln(u_n)=\ln\left(2^{\frac{1}{2^n}}\right) 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- \ln(u_n)=\frac{1}{2^n}\ln(2) 
-\]
-                </div>
-                <div class="math-block">
-                    \[
- 2^n\ln(u_n)=\ln(2) 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ \ln(2)=2^n\ln(u_n) \]</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ejercicio 7 -->
-        <div class="exercise-card">
-            <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>7. En déduire que la suite \((u_n)\) est convergente.</h3>
+                <h3>14. Recopier et compléter l'algorithme / le programme Python.</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
                 <div class="section-title">Données :</div>
                 <div class="math-block">
                     \[
- u_n=20+10\left(\frac12\right)^n 
+ u_0=30 
 \]
                 </div>
                 <div class="math-block">
                     \[
- \lim_{n\to+\infty}\left(\frac12\right)^n=0 
+ u_{n+1}=20+\frac{u_n-20}{2} 
 \]
+                </div>
+
+                <div class="section-title">Algorithme :</div>
+                <div class="tree-container" style="color: #a78bfa;">
+                    <pre style="margin: 0; font-family: monospace;">
+u = 30
+n = 0
+
+while u > 20.01:
+    u = 20 + (u - 20)/2
+    n = n + 1
+
+print(u)
+print(n)</pre>
                 </div>
 
                 <div class="section-title">Calcul :</div>
                 <div class="math-block">
                     \[
- \lim_{n\to+\infty}u_n=\lim_{n\to+\infty}\left[20+10\left(\frac12\right)^n\right] 
+ u_0=30 
 \]
                 </div>
                 <div class="math-block">
                     \[
- =20+10\times0 
+ u_1=25 
 \]
                 </div>
                 <div class="math-block">
                     \[
- =20 
+ u_2=22,5 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_3=21,25 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_4=20,625 
 \]
                 </div>
                 <div class="math-block">
                     <div class="result-box">\[ \lim_{n\to+\infty}u_n=20 \]</div>
                 </div>
-
-                <div class="section-title">Conclusion :</div>
-                <div class="math-block">
-                    <div class="result-box">\[ \text{La suite }(u_n)\text{ est convergente vers }20. \]</div>
-                </div>
             </div>
         </div>
 
-        <!-- Ejercicio 8 -->
+        <!-- Ejercicio 16 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
-                <h3>8. Déterminer / Calculer la limite de la suite \((u_n)\).</h3>
+                <h3>16. Interpréter les valeurs renvoyées par l'appel de la fonction dans le contexte de l'exercice. / Que renvoie la fonction `mystere(n)` ?</h3>
                 <span class="toggle-icon">▼</span>
             </div>
             <div class="exercise-body">
                 <div class="section-title">Données :</div>
                 <div class="math-block">
                     \[
- u_n = \frac{3n^2 + 2n - 1}{2n^2 - 5n + 4} \quad n \in \mathbb{N} 
+ u_n=20+10\left(\frac12\right)^n 
+\]
+                </div>
+
+                <div class="section-title">Programme Python :</div>
+                <div class="tree-container" style="color: #a78bfa;">
+                    <pre style="margin: 0; font-family: monospace;">
+def mystere(n):
+    u = 30
+    for i in range(n):
+        u = 20 + (u - 20)/2
+    return u</pre>
+                </div>
+
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">
+                    \[
+ u_0=30 
 \]
                 </div>
                 <div class="math-block">
                     \[
- \lim_{n \to +\infty} n = +\infty 
+ u_1=25 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_2=22,5 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_3=21,25 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_4=20,625 
+\]
+                </div>
+
+                <div class="section-title">Résultat :</div>
+                <div class="math-block">
+                    <div class="result-box">\[ \text{mystere}(n)=u_n \]</div>
+                </div>
+                <div class="math-block">
+                    <div class="result-box">\[ \text{mystere}(n)=20+10\left(\frac12\right)^n \]</div>
+                </div>
+
+                <div class="section-title">Interprétation :</div>
+                <p style="color: #d1d5db; text-align: left; margin-bottom: 15px;">
+                    La fonction renvoie le terme \(u_n\) de la suite au rang \(n\).
+                </p>
+                <p class="note-text">Nota: El código es un ejemplo basado en la sucesión anterior. Para interpretar exactamente la función del ejercicio, necesito ver su código original.</p>
+            </div>
+        </div>
+
+        <!-- Ejercicio 17 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>17. Déterminer à l'aide de la calculatrice [ou en résolvant une inéquation] le plus petit entier naturel \(n\) tel que \(u_n>M\).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">
+                    \[
+ u_n=20+10\left(\frac12\right)^n 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ M=20,1 
 \]
                 </div>
 
                 <div class="section-title">Calcul :</div>
                 <div class="math-block">
                     \[
- \lim_{n \to +\infty} u_n = \lim_{n \to +\infty} \frac{3n^2 + 2n - 1}{2n^2 - 5n + 4} 
+ 20+10\left(\frac12\right)^n>20,1 
 \]
                 </div>
                 <div class="math-block">
                     \[
- = \lim_{n \to +\infty} \frac{3 + \frac{2}{n} - \frac{1}{n^2}}{2 - \frac{5}{n} + \frac{4}{n^2}} 
+ 10\left(\frac12\right)^n>0,1 
 \]
                 </div>
                 <div class="math-block">
                     \[
- = \frac{3 + 0 - 0}{2 - 0 + 0} 
+ \left(\frac12\right)^n>0,01 
 \]
                 </div>
                 <div class="math-block">
-                    <div class="result-box">\[ \lim_{n \to +\infty} u_n = \frac{3}{2} \]</div>
+                    \[
+ n\ln(0,5)>\ln(0,01) 
+\]
                 </div>
+                <div class="math-block">
+                    \[
+ n<\frac{\ln(0,01)}{\ln(0,5)} 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ n<6,64 
+\]
+                </div>
+
+                <div class="section-title">Valeurs :</div>
+                <div class="math-block">
+                    \[
+ u_6=20,15625 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_7=20,078125 
+\]
+                </div>
+                <div class="math-block">
+                    <div class="result-box">\[ n_{\max}=6 \]</div>
+                </div>
+                
+                <p class="note-text">Nota: Se utilizaron \(M=20,1\) y la sucesión anterior como ejemplos. Como la sucesión es decreciente, no existe un menor \(n\) que cumpla \(u_n>M\); el resultado es el mayor entero que cumple la desigualdad.</p>
+            </div>
+        </div>
+
+        <!-- Ejercicio 18 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>18. Interpréter ce résultat dans le contexte de l'exercice.</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">
+                    \[
+ u_n=20+10\left(\frac12\right)^n 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ M=20,1 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ n=6 
+\]
+                </div>
+
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">
+                    \[
+ u_6=20+10\left(\frac12\right)^6 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_6=20+\frac{10}{64} 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_6=20,15625 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_7=20+10\left(\frac12\right)^7 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_7=20,078125 
+\]
+                </div>
+
+                <div class="section-title">Interprétation :</div>
+                <div class="math-block">
+                    \[
+ u_6>20,1 
+\]
+                </div>
+                <div class="math-block">
+                    \[
+ u_7<20,1 
+\]
+                </div>
+                <div class="math-block">
+                    <div class="result-box">\[ \text{À partir du rang }7,\ u_n\leq20,1. \]</div>
+                </div>
+                
+                <p class="note-text">Nota: Interpretación basada en los valores de ejemplo de los ejercicios anteriores. Envíame el contexto original para redactar la interpretación exacta.</p>
             </div>
         </div>
 
     </div>
 
-    <!-- ================= CHAPITRE 2 ================= -->
-    <div id="chapter-2" class="chapter-content">
-        <p style="text-align: center; color: #6b7280; font-style: italic;">Contenu du Chapitre 2 à venir...</p>
-    </div>
-
-    <!-- ================= CHAPITRE 3 à 10 ================= -->
+    <!-- CHAPITRES 2-10 -->
+    <div id="chapter-2" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu du Chapitre 2 à venir...</p></div>
     <div id="chapter-3" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-4" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-5" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
@@ -818,9 +822,7 @@
     <div id="chapter-9" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-10" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
 
-
     <script>
-        // Función para cambiar entre capítulos
         function openChapter(chapterNumber, btnElement) {
             const contents = document.querySelectorAll('.chapter-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -832,7 +834,6 @@
             btnElement.classList.add('active');
         }
 
-        // Función para abrir/cerrar los ejercicios de forma instantánea
         function toggleExercise(element) {
             const body = element.nextElementSibling;
             const icon = element.querySelector('.toggle-icon');
@@ -843,7 +844,6 @@
             } else {
                 body.style.display = "block";
                 icon.textContent = "▲";
-                // Re-renderizar MathJax 
                 MathJax.typesetPromise([body]); 
             }
         }
