@@ -205,8 +205,8 @@
     </header>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openChapter(1, this)">Chapitre 1</button>
-        <button class="tab-btn" onclick="openChapter(2, this)">Chapitre 2</button>
+        <button class="tab-btn active" onclick="openChapter(1, this)">C1 - SUITES</button>
+        <button class="tab-btn" onclick="openChapter(2, this)">C2 - COMBINATOIRE ET DENOMBREMENT</button>
         <button class="tab-btn" onclick="openChapter(3, this)">Chapitre 3</button>
         <button class="tab-btn" onclick="openChapter(4, this)">Chapitre 4</button>
         <button class="tab-btn" onclick="openChapter(5, this)">Chapitre 5</button>
@@ -715,10 +715,191 @@ def mystere(n):
             </div>
         </div>
 
-    </div> <!-- CIERRE DEFINITIVO DEL CHAPITRE 1 -->
+    </div> 
+    <div id="chapter-2" class="chapter-content">
+        
+        <!-- EJERCICIO 1 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>1. Déterminer le nombre de séquences (ou couples) possibles. / Combien de couples \((a\,;c)\) différents peut-on obtenir ?</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ a\in A,\quad |A|=4 \]</div>
+                <div class="math-block">\[ c\in C,\quad |C|=3 \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ N=|A|\times|C| \]</div>
+                <div class="math-block">\[ N=4\times3 \]</div>
+                <div class="math-block"><div class="result-box">\[ N=12 \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ 12\text{ couples différents} \]</div></div>
+            </div>
+        </div>
 
-    <!-- CHAPITRES 2-10 (Placeholders) -->
-    <div id="chapter-2" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu du Chapitre 2 à venir...</p></div>
+        <!-- EJERCICIO 2 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>2. Déterminer le nombre de séquences si l'on impose que les 4 caractères sont différents deux à deux (tirages sans remise / arrangements).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ n=10 \qquad p=4 \]</div>
+                <div class="math-block">\[ \text{Sans remise} \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ A_n^p=\frac{n!}{(n-p)!} \]</div>
+                <div class="math-block">\[ A_{10}^4=\frac{10!}{(10-4)!} \]</div>
+                <div class="math-block">\[ =\frac{10!}{6!} \]</div>
+                <div class="math-block">\[ =10\times9\times8\times7 \]</div>
+                <div class="math-block"><div class="result-box">\[ A_{10}^4=5040 \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ 5040\text{ séquences possibles} \]</div></div>
+                <p class="note-text">Nota: Los 10 caracteres son un ejemplo. Si el ejercicio utiliza otro número de caracteres, el resultado cambia.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 3 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>3. Déterminer le nombre de séquences ne comportant pas un élément spécifié (ex : pas de lettre A).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ n=10 \]</div>
+                <div class="math-block">\[ p=4 \]</div>
+                <div class="math-block">\[ \text{Élément interdit : A} \]</div>
+                <div class="math-block">\[ n'=10-1=9 \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ A_9^4=\frac{9!}{(9-4)!} \]</div>
+                <div class="math-block">\[ =\frac{9!}{5!} \]</div>
+                <div class="math-block">\[ =9\times8\times7\times6 \]</div>
+                <div class="math-block"><div class="result-box">\[ A_9^4=3024 \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ 3024\text{ séquences possibles sans la lettre A} \]</div></div>
+                <p class="note-text">Nota: Se consideran 10 caracteres disponibles y secuencias de 4 caracteres sin repetición. Los valores son ilustrativos.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 4 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>4. En déduire le nombre de séquences comportant au moins un élément spécifié.</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ n=10,\quad p=4 \]</div>
+                <div class="math-block">\[ N_{\text{total}}=5040 \]</div>
+                <div class="math-block">\[ N_{\text{sans A}}=3024 \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ N_{\text{avec au moins un A}}=N_{\text{total}}-N_{\text{sans A}} \]</div>
+                <div class="math-block">\[ =5040-3024 \]</div>
+                <div class="math-block"><div class="result-box">\[ N=2016 \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ 2016\text{ séquences comportant au moins un A} \]</div></div>
+                <p class="note-text">Nota: Resultado basado en los valores ilustrativos de los ejercicios anteriores.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 5 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>5. Déterminer le nombre de séquences comportant exactement une fois (ou deux fois) un élément spécifié.</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ n=10,\quad p=4 \]</div>
+                <div class="math-block">\[ \text{Élément spécifié : A} \]</div>
+                
+                <div class="section-title" style="color: #fbbf24;">1. Exactement une fois la lettre A</div>
+                <div class="math-block">\[ N=\binom41\times A_9^3 \]</div>
+                <div class="math-block">\[ =4\times\frac{9!}{(9-3)!} \]</div>
+                <div class="math-block">\[ =4\times9\times8\times7 \]</div>
+                <div class="math-block"><div class="result-box">\[ N=2016 \]</div></div>
+
+                <div class="section-title" style="color: #fbbf24;">2. Exactement deux fois la lettre A</div>
+                <div class="math-block">\[ N=\binom42\times A_9^2 \]</div>
+                <div class="math-block">\[ =6\times\frac{9!}{7!} \]</div>
+                <div class="math-block">\[ =6\times9\times8 \]</div>
+                <div class="math-block"><div class="result-box">\[ N=432 \]</div></div>
+
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ \text{Exactement 1 A : }2016 \]</div></div>
+                <div class="math-block"><div class="result-box">\[ \text{Exactement 2 A : }432 \]</div></div>
+                <p class="note-text">Nota: Se utilizan 10 caracteres, 4 posiciones y 9 caracteres distintos de A, suponiendo que no se repiten los demás caracteres.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 6 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>6. Montrer que l'événement \(M\) a lieu si et seulement si \(ac<1\) (condition algébrique de dénombrement).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ M:\text{ événement à vérifier} \]</div>
+                <div class="math-block">\[ a,c\in\mathbb{R} \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ M\iff ac<1 \]</div>
+                <div class="math-block">\[ ac<1 \]</div>
+                <div class="math-block"><div class="result-box">\[ M\iff ac<1 \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ \text{L'événement }M\text{ a lieu si et seulement si }ac<1. \]</div></div>
+                <p class="note-text">Nota: Para demostrar esta equivalencia con cálculos, necesito la definición del evento \(M\) y las condiciones de \(a\) y \(c\). La equivalencia sola no constituye una demostración.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 7 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>7. Expliquer pourquoi l'événement contraire comporte \(K\) issues (décompte d'issues favorables).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ \Omega=\text{ensemble des issues possibles} \]</div>
+                <div class="math-block">\[ M=\text{événement} \]</div>
+                <div class="math-block">\[ \overline M=\text{événement contraire} \]</div>
+                <div class="math-block">\[ |\Omega|=N \]</div>
+                <div class="math-block">\[ |M|=N-K \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ |\overline M|=|\Omega|-|M| \]</div>
+                <div class="math-block">\[ =N-(N-K) \]</div>
+                <div class="math-block">\[ =N-N+K \]</div>
+                <div class="math-block"><div class="result-box">\[ |\overline M|=K \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ \text{L'événement contraire comporte }K\text{ issues.} \]</div></div>
+                <p class="note-text">Nota: La fórmula es general. Para justificar el valor exacto de \(K\), hace falta el enunciado completo del ejercicio.</p>
+            </div>
+        </div>
+
+        <!-- EJERCICIO 8 -->
+        <div class="exercise-card">
+            <div class="exercise-header" onclick="toggleExercise(this)">
+                <h3>8. Quelle est la probabilité de l'événement \(M\) ? (calcul par cas favorables / cas possibles).</h3>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="exercise-body">
+                <div class="section-title">Données :</div>
+                <div class="math-block">\[ N_{\text{total}}=5040 \]</div>
+                <div class="math-block">\[ N_{\overline M}=K=3024 \]</div>
+                <div class="math-block">\[ N_M=5040-3024=2016 \]</div>
+                <div class="section-title">Calcul :</div>
+                <div class="math-block">\[ P(M)=\frac{\text{Cas favorables}}{\text{Cas possibles}} \]</div>
+                <div class="math-block">\[ P(M)=\frac{2016}{5040} \]</div>
+                <div class="math-block">\[ P(M)=\frac{2}{5} \]</div>
+                <div class="math-block"><div class="result-box">\[ P(M)=0,4=40\% \]</div></div>
+                <div class="section-title">Conclusion :</div>
+                <div class="math-block"><div class="result-box">\[ P(M)=40\% \]</div></div>
+                <p class="note-text">Nota: Los valores son ilustrativos y se basan en los ejemplos anteriores; hace falta el número real de casos favorables y posibles para obtener la probabilidad exacta.</p>
+            </div>
+        </div>
+
+    </div> 
     <div id="chapter-3" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-4" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-5" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
