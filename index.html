@@ -1,10 +1,3 @@
-Tienes toda la razón. El error fue que al copiar y pegar, las etiquetas `</div>` de cierre del Ejercicio 11 se colocaron mal, "atrapando" los ejercicios 12 al 18 dentro de él. 
-
-Aquí tienes el código **completamente corregido y estructurado**. Cada ejercicio tiene su propia tarjeta independiente (`exercise-card`), y los cierres están perfectamente balanceados para que se vean como una lista del 1 al 18.
-
-Copia y pega este bloque completo:
-
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -152,7 +145,6 @@ Copia y pega este bloque completo:
             padding: 30px;
             border-top: 1px solid #374151;
             width: 100%;
-            overflow: hidden; 
         }
 
         .math-block {
@@ -160,7 +152,6 @@ Copia y pega este bloque completo:
             text-align: center;
             font-size: 1.25rem;
             width: 100%;
-            overflow-wrap: break-word;
         }
 
         .section-title {
@@ -200,7 +191,6 @@ Copia y pega este bloque completo:
             margin: 15px 0;
             color: #d1d5db;
             line-height: 1.8;
-            overflow-x: auto;
         }
         .tree-container .branch { margin-left: 20px; }
         .tree-container .leaf { margin-left: 40px; color: #a78bfa; }
@@ -237,38 +227,16 @@ Copia y pega este bloque completo:
             </div>
             <div class="exercise-body">
                 <div class="section-title">Données :</div>
-                <div class="math-block">
-                    \[
- u_n = \frac{3n^2+2n-1}{2n^2-5n+4} \quad ; \quad w_n = 2n+3 
-\]
-                </div>
+                <div class="math-block">\[ u_n = \frac{3n^2+2n-1}{2n^2-5n+4} \quad ; \quad w_n = 2n+3 \]</div>
                 <div class="section-title">Calcul de \(u_1\) :</div>
-                <div class="math-block">
-                    \[
- u_1 = \frac{3(1)^2+2(1)-1}{2(1)^2-5(1)+4} = \frac{3+2-1}{2-5+4} 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ u_1 = 4 \]</div>
-                </div>
+                <div class="math-block">\[ u_1 = \frac{3(1)^2+2(1)-1}{2(1)^2-5(1)+4} = \frac{3+2-1}{2-5+4} \]</div>
+                <div class="math-block"><div class="result-box">\[ u_1 = 4 \]</div></div>
                 <div class="section-title">Calcul de \(u_2\) :</div>
-                <div class="math-block">
-                    \[
- u_2 = \frac{3(2)^2+2(2)-1}{2(2)^2-5(2)+4} = \frac{12+4-1}{8-10+4} 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ u_2 = \frac{15}{2} \]</div>
-                </div>
+                <div class="math-block">\[ u_2 = \frac{3(2)^2+2(2)-1}{2(2)^2-5(2)+4} = \frac{12+4-1}{8-10+4} \]</div>
+                <div class="math-block"><div class="result-box">\[ u_2 = \frac{15}{2} \]</div></div>
                 <div class="section-title">Calcul de \(w_0\) :</div>
-                <div class="math-block">
-                    \[
- w_0 = 2(0)+3 
-\]
-                </div>
-                <div class="math-block">
-                    <div class="result-box">\[ w_0 = 3 \]</div>
-                </div>
+                <div class="math-block">\[ w_0 = 2(0)+3 \]</div>
+                <div class="math-block"><div class="result-box">\[ w_0 = 3 \]</div></div>
             </div>
         </div>
 
@@ -545,9 +513,9 @@ Copia y pega este bloque completo:
                 <div class="section-title" style="color: #fbbf24; font-size: 1rem;">Conclusion :</div>
                 <div class="math-block"><div class="result-box">\[ (p_n)\text{ est strictement décroissante.} \]</div></div>
             </div>
-        </div>
-
-        <!-- EJERCICIO 12 (Ahora sí, fuera del 11) -->
+        </div> 
+        
+        <!-- EJERCICIO 12 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
                 <h3>12. Justifier / Montrer que, pour tout entier naturel \(n \geq 1\), \(p_{n+1} = a p_n + b\).</h3>
@@ -747,9 +715,9 @@ def mystere(n):
             </div>
         </div>
 
-    </div> <!-- Fin del Chapitre 1 -->
+    </div> <!-- CIERRE DEFINITIVO DEL CHAPITRE 1 -->
 
-    <!-- CHAPITRES 2-10 -->
+    <!-- CHAPITRES 2-10 (Placeholders) -->
     <div id="chapter-2" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu du Chapitre 2 à venir...</p></div>
     <div id="chapter-3" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-4" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
@@ -760,6 +728,7 @@ def mystere(n):
     <div id="chapter-9" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-10" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
 
+    <!-- SCRIPTS FINALES -->
     <script>
         function openChapter(chapterNumber, btnElement) {
             const contents = document.querySelectorAll('.chapter-content');
@@ -788,4 +757,4 @@ def mystere(n):
     </script>
 </body>
 </html>
-```
+        -->
