@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAT - Révision BAC</title>
     
-    <!-- Cargar MathJax para las fórmulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -102,7 +101,6 @@
             display: block;
         }
 
-        /* --- Estilos de las Tarjetas de Ejercicios --- */
         .exercise-card {
             background-color: var(--white);
             border-radius: 12px;
@@ -205,8 +203,8 @@
     </header>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openChapter(1, this)">C1 - SUITES</button>
-        <button class="tab-btn" onclick="openChapter(2, this)">C2 - COMBINATOIRE ET DENOMBREMENT</button>
+        <button class="tab-btn active" onclick="openChapter(1, this)">Chapitre 1 : SUITES</button>
+        <button class="tab-btn" onclick="openChapter(2, this)">Chapitre 2 : COMBINATOIRE</button>
         <button class="tab-btn" onclick="openChapter(3, this)">Chapitre 3</button>
         <button class="tab-btn" onclick="openChapter(4, this)">Chapitre 4</button>
         <button class="tab-btn" onclick="openChapter(5, this)">Chapitre 5</button>
@@ -216,7 +214,7 @@
         <button class="tab-btn" onclick="openChapter(9, this)">Chapitre 9</button>
         <button class="tab-btn" onclick="openChapter(10, this)">Chapitre 10</button>
     </div>
-
+        <!-- ================= CHAPITRE 1 : SUITES ================= -->
     <div id="chapter-1" class="chapter-content active">
         
         <!-- EJERCICIO 1 -->
@@ -514,7 +512,7 @@
                 <div class="math-block"><div class="result-box">\[ (p_n)\text{ est strictement décroissante.} \]</div></div>
             </div>
         </div> 
-        
+
         <!-- EJERCICIO 12 -->
         <div class="exercise-card">
             <div class="exercise-header" onclick="toggleExercise(this)">
@@ -607,7 +605,7 @@ print(n)</pre>
                 <div class="section-title">Données :</div>
                 <div class="math-block">\[ u_n=20+10\left(\frac12\right)^n \]</div>
                 <div class="section-title">Tableau de valeurs :</div>
-                <div class="tree-container" style="color: #a78bfa; overflow-x: auto;">
+                <div class="tree-container" style="color: #a78bfa;">
                     <table style="width: 100%; border-collapse: collapse; text-align: center; color: #fff;">
                         <tr style="border-bottom: 1px solid #4b5563;">
                             <th style="padding: 8px;">\(n\)</th>
@@ -715,7 +713,8 @@ def mystere(n):
             </div>
         </div>
 
-    </div> 
+    </div> <!-- FIN CHAPITRE 1 -->
+        <!-- ================= CHAPITRE 2 : COMBINATOIRE ET DÉNOMBREMENT ================= -->
     <div id="chapter-2" class="chapter-content">
         
         <!-- EJERCICIO 1 -->
@@ -794,7 +793,7 @@ def mystere(n):
                 <div class="math-block">\[ N_{\text{total}}=5040 \]</div>
                 <div class="math-block">\[ N_{\text{sans A}}=3024 \]</div>
                 <div class="section-title">Calcul :</div>
-                <div class="math-block">\[ N_{\text{avec au moins un A}}=N_{\text{total}}-N_{\text{sans A}} \]</div>
+                <div class="math-block">\[ N_{\text{avec au moins un A}} =N_{\text{total}}-N_{\text{sans A}} \]</div>
                 <div class="math-block">\[ =5040-3024 \]</div>
                 <div class="math-block"><div class="result-box">\[ N=2016 \]</div></div>
                 <div class="section-title">Conclusion :</div>
@@ -814,13 +813,13 @@ def mystere(n):
                 <div class="math-block">\[ n=10,\quad p=4 \]</div>
                 <div class="math-block">\[ \text{Élément spécifié : A} \]</div>
                 
-                <div class="section-title" style="color: #fbbf24;">1. Exactement une fois la lettre A</div>
+                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">1. Exactement une fois la lettre A</div>
                 <div class="math-block">\[ N=\binom41\times A_9^3 \]</div>
                 <div class="math-block">\[ =4\times\frac{9!}{(9-3)!} \]</div>
                 <div class="math-block">\[ =4\times9\times8\times7 \]</div>
                 <div class="math-block"><div class="result-box">\[ N=2016 \]</div></div>
 
-                <div class="section-title" style="color: #fbbf24;">2. Exactement deux fois la lettre A</div>
+                <div class="section-title" style="color: #fbbf24; font-size: 1rem;">2. Exactement deux fois la lettre A</div>
                 <div class="math-block">\[ N=\binom42\times A_9^2 \]</div>
                 <div class="math-block">\[ =6\times\frac{9!}{7!} \]</div>
                 <div class="math-block">\[ =6\times9\times8 \]</div>
@@ -868,7 +867,7 @@ def mystere(n):
                 <div class="math-block">\[ |M|=N-K \]</div>
                 <div class="section-title">Calcul :</div>
                 <div class="math-block">\[ |\overline M|=|\Omega|-|M| \]</div>
-                <div class="math-block">\[ =N-(N-K) \]</div>
+                <div class="math-block">\[ = N-(N-K) \]</div>
                 <div class="math-block">\[ =N-N+K \]</div>
                 <div class="math-block"><div class="result-box">\[ |\overline M|=K \]</div></div>
                 <div class="section-title">Conclusion :</div>
@@ -898,7 +897,10 @@ def mystere(n):
                 <p class="note-text">Nota: Los valores son ilustrativos y se basan en los ejemplos anteriores; hace falta el número real de casos favorables y posibles para obtener la probabilidad exacta.</p>
             </div>
         </div>
-    </div>                
+
+    </div> <!-- FIN CHAPITRE 2 -->
+
+    <!-- CHAPITRES 3-10 (Placeholders) -->
     <div id="chapter-3" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-4" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
     <div id="chapter-5" class="chapter-content"><p style="text-align: center; color: #6b7280; font-style: italic;">Contenu à venir...</p></div>
@@ -937,4 +939,3 @@ def mystere(n):
     </script>
 </body>
 </html>
-        -->
