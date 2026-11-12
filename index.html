@@ -195,7 +195,48 @@
 
         .exercise-body, .exercise-body * { scrollbar-width: none; -ms-overflow-style: none; }
         .exercise-body::-webkit-scrollbar, .exercise-body *::-webkit-scrollbar { display: none; width: 0; height: 0; }
-    </style>
+
+        /* ===== Menú de capítulos desplegable ===== */
+        .tabs-container { display: block; padding: 6px 10px; }
+        .menu-toggle {
+            width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+            background-color: rgba(255,255,255,0.08); color: var(--white);
+            border: 2px solid var(--accent-green); border-radius: 8px;
+            padding: 10px 14px; font-size: 1rem; font-weight: 600; cursor: pointer; text-align: left;
+        }
+        .menu-toggle span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .tabs-list {
+            display: none; position: absolute; left: 0; right: 0; top: 100%;
+            background-color: var(--dark-gray); padding: 8px 10px 12px;
+            max-height: 70vh; overflow-y: auto; box-shadow: 0 8px 12px rgba(0,0,0,0.3);
+        }
+        .tabs-list.open { display: block; }
+        .tab-btn { display: block; width: 100%; text-align: left; margin: 3px 0; padding: 12px 14px; }
+        .chapter-content { scroll-margin-top: 60px; }
+        @media (max-width: 600px) {
+            header { padding: 14px 12px; }
+            header h1 { font-size: 1.4rem; letter-spacing: 1px; }
+            header p { font-size: 0.85rem; margin-top: 2px; }
+            .chapter-content { margin: 15px auto; padding: 0 10px; }
+            .exercise-header { padding: 14px; }
+            .exercise-body { padding: 16px 12px; }
+            .math-block { font-size: 1.05rem; }
+        }
+    
+        /* ===== Haut de page compact ===== */
+        header { padding: 10px 16px; display: flex; align-items: baseline; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        header h1 { font-size: 1.25rem; letter-spacing: 1px; text-shadow: none; }
+        header p { font-size: 0.8rem; margin-top: 0; }
+        .tabs-container { padding: 4px 10px; }
+        .menu-toggle { padding: 7px 12px; font-size: 0.95rem; }
+        .chapter-content { margin: 14px auto; }
+        @media (max-width: 600px) {
+            header { padding: 6px 10px; }
+            header h1 { font-size: 1.05rem; }
+            header p { display: none; }
+            .tab-btn { font-size: 0.9rem; padding: 10px 12px; }
+        }
+</style>
 </head>
 <body>
 <header>
@@ -203,6 +244,10 @@
 <p>Révisions &amp; Exercices Corrigés</p>
 </header>
 <div class="tabs-container">
+<button aria-expanded="false" class="menu-toggle" id="menuToggle" onclick="toggleMenu(event)">
+<span id="currentChapter">Chapitre 1 : SUITES</span><span id="menuIcon">▼</span>
+</button>
+<div class="tabs-list" id="tabsList">
 <button class="tab-btn active" onclick="openChapter(1, this)">Chapitre 1 : SUITES</button>
 <button class="tab-btn" onclick="openChapter(2, this)">Chapitre 2 : COMBINATOIRE ET DÉNOMBREMENT</button>
 <button class="tab-btn" onclick="openChapter(3, this)">Chapitre 3 : FONCTIONS</button>
@@ -212,7 +257,8 @@
 <button class="tab-btn" onclick="openChapter(9, this)">Chapitre 9 : ÉQUATIONS DIFFÉRENTIELLES</button>
 <button class="tab-btn" onclick="openChapter(10, this)">Chapitre 10 : VARIABLES ALÉATOIRES ET LOIS DE PROBABILITÉ</button>
 <button class="tab-btn" onclick="openChapter(11, this)">Chapitre 11 : TRIGONOMÉTRIE</button>
-<button class="tab-btn" onclick="openChapter(12, this)">Chapitre 12 : CALCUL INTÉGRAL</button>
+<button class="tab-btn" onclick="openChapter(12, this)">Chapitre 12 : CALCUL INTÉGRAL</button><button class="tab-btn" onclick="openChapter('extra', this)">Infos extra : FORMULES</button>
+</div>
 </div>
 <!-- ================= CHAPITRE 1 : SUITES ================= -->
 <div class="chapter-content active" id="chapter-1">
@@ -1979,7 +2025,7 @@ print(n)</pre></div>
 <h3>1. Que représente la variable aléatoire \(M_n\) (ou \(S_n\)) dans le contexte de l'exercice ?</h3>
 <span class="toggle-icon">▼</span>
 </div>
- <!-- FIN CHAPITRE 11 -->
+<!-- FIN CHAPITRE 11 -->
 <div class="exercise-body"><div class="section-title">Données :</div>
 <div class="math-block">\[ X_i=1\text{ si le produit est défectueux},\quad X_i=0\text{ sinon} \]</div>
 <div class="math-block">\[ S_n=X_1+X_2+\cdots+X_n \qquad M_n=\frac{S_n}{n} \]</div>
@@ -2031,23 +2077,24 @@ print(n)</pre></div>
 </div>
 <div class="exercise-card">
 <div class="exercise-header" onclick="toggleExercise(this)">
-<h3>4. À l'aide de l'inégalité de Bienaymé-Tchebychev (ou de concentration), montrer que \(P(|M_n-\mu|\geq\varepsilon)\) est majorée par une expression donnée.</h3>
+<h3>4. À l'aide de l'inégalité de Bienaymé-Tchebychev [ou de concentration], montrer que : \(P(|M_n-\mu|\geq\varepsilon)\leq\frac{V(M_n)}{\varepsilon^2}\)</h3>
 <span class="toggle-icon">▼</span>
 </div>
 <div class="exercise-body"><div class="section-title">Données :</div>
-<div class="math-block">\[ E(M_n)=\mu \qquad V(M_n)=\frac{\sigma^2}{n} \]</div>
-<div class="section-title">À retenir :</div>
-<div class="math-block"><div class="result-box">\[ P(|X-E(X)|\geq\varepsilon)\leq\frac{V(X)}{\varepsilon^2}\qquad(\varepsilon&gt;0) \]</div></div>
-<div class="section-title">Calcul :</div>
+<div class="math-block">\[ E(M_n)=\mu \]</div>
+<div class="math-block">\[ V(M_n)\text{ connue} \]</div>
+<div class="math-block">\[ \varepsilon&gt;0 \]</div>
+<div class="section-title">Développement :</div>
+<p style="text-align:left; margin:12px 0 4px;">D'après l'inégalité de Bienaymé-Tchebychev :</p>
+<div class="math-block">\[ P(|X-E(X)|\geq a)\leq\frac{V(X)}{a^2} \]</div>
+<p style="text-align:left; margin:12px 0 4px;">En prenant \(X=M_n\) et \(a=\varepsilon\) :</p>
 <div class="math-block">\[ P(|M_n-E(M_n)|\geq\varepsilon)\leq\frac{V(M_n)}{\varepsilon^2} \]</div>
-<div class="math-block">\[ E(M_n)=\mu\ \Rightarrow\ P(|M_n-\mu|\geq\varepsilon)\leq\frac{V(M_n)}{\varepsilon^2} \]</div>
-<div class="math-block">\[ P(|M_n-\mu|\geq\varepsilon)\leq\frac{\frac{\sigma^2}{n}}{\varepsilon^2} \]</div>
-<div class="math-block"><div class="result-box">\[ P(|M_n-\mu|\geq\varepsilon)\leq\frac{\sigma^2}{n\varepsilon^2} \]</div></div>
-<div class="section-title">Exemple :</div>
-<div class="math-block">\[ \mu=50 \qquad \sigma^2=16 \qquad n=100 \]</div>
-<div class="math-block">\[ P(|M_{100}-50|\geq2)\leq\frac{16}{100\times2^2}=\frac{16}{400} \]</div>
-<div class="math-block"><div class="result-box">\[ P(|M_{100}-50|\geq2)\leq0,04=4\% \]</div></div>
-<p class="note-text">Nota : l'énoncé était coupé ; forme générale classique du BAC.</p></div>
+<p style="text-align:left; margin:12px 0 4px;">Or, \(E(M_n)=\mu\), donc :</p>
+<div class="math-block"><div class="result-box">\[ P(|M_n-\mu|\geq\varepsilon)\leq\frac{V(M_n)}{\varepsilon^2} \]</div></div>
+<div class="section-title">Conclusion :</div>
+<p style="text-align:left; margin:12px 0 4px;">L'inégalité de Bienaymé-Tchebychev est démontrée.</p>
+<div class="section-title">À retenir :</div>
+<div class="math-block">\[ P(|M_n-\mu|&lt;\varepsilon)\geq1-\frac{V(M_n)}{\varepsilon^2} \]</div></div>
 </div>
 <div class="exercise-card">
 <div class="exercise-header" onclick="toggleExercise(this)">
@@ -2071,19 +2118,30 @@ print(n)</pre></div>
 </div>
 <div class="exercise-card">
 <div class="exercise-header" onclick="toggleExercise(this)">
-<h3>7. Justifier si l'affirmation suivante est vraie ou fausse à l'aide de l'inégalité de Bienaymé-Tchebychev.</h3>
+<h3>7. Justifier si l'affirmation suivante est vraie ou fausse : « Il n'existe aucun entier naturel \(n\) tel que \(P(|M_n-\mu|\geq\varepsilon)&lt;\alpha\) »</h3>
 <span class="toggle-icon">▼</span>
 </div>
 <div class="exercise-body"><div class="section-title">Données :</div>
-<div class="math-block">\[ E(M_n)=\mu \qquad V(M_n)=\frac4n \]</div>
-<div class="math-block">\[ \text{Affirmation : « Il n'existe aucun entier }n\text{ tel que }P(|M_n-\mu|&lt;1)\geq0,95\text{ »} \]</div>
-<div class="section-title">Calcul :</div>
-<div class="math-block">\[ P(|M_n-\mu|&lt;1)\geq1-\frac{V(M_n)}{1^2}=1-\frac4n \]</div>
-<div class="math-block">\[ 1-\frac4n\geq0,95\iff\frac4n\leq0,05\iff n\geq80 \]</div>
-<div class="math-block">\[ n=80\ :\quad P(|M_{80}-\mu|&lt;1)\geq0,95 \]</div>
+<div class="math-block">\[ V(M_n)=\frac{\sigma^2}{n} \]</div>
+<div class="math-block">\[ \varepsilon&gt;0 \]</div>
+<div class="math-block">\[ 0&lt;\alpha&lt;1 \]</div>
+<div class="section-title">Développement :</div>
+<p style="text-align:left; margin:12px 0 4px;">D'après Bienaymé-Tchebychev :</p>
+<div class="math-block">\[ P(|M_n-\mu|\geq\varepsilon)\leq\frac{V(M_n)}{\varepsilon^2} \]</div>
+<p style="text-align:left; margin:12px 0 4px;">On remplace \(V(M_n)\) :</p>
+<div class="math-block">\[ P(|M_n-\mu|\geq\varepsilon)\leq\frac{\sigma^2}{n\varepsilon^2} \]</div>
+<p style="text-align:left; margin:12px 0 4px;">On cherche :</p>
+<div class="math-block">\[ \frac{\sigma^2}{n\varepsilon^2}&lt;\alpha \]</div>
+<div class="math-block">\[ \sigma^2&lt;n\alpha\varepsilon^2 \]</div>
+<div class="math-block"><div class="result-box">\[ n&gt;\frac{\sigma^2}{\alpha\varepsilon^2} \]</div></div>
+<p style="text-align:left; margin:12px 0 4px;">Il existe toujours un entier naturel suffisamment grand vérifiant cette condition.</p>
 <div class="section-title">Conclusion :</div>
-<div class="math-block"><div class="result-box">\[ \text{FAUSSE} \]</div></div>
-<p class="note-text">Nota : affirmation d'exemple ; pour réfuter « il n'existe aucun \(n\) », il suffit d'exhiber un \(n\) qui convient.</p></div>
+<p style="text-align:left; margin:12px 0 4px;">FAUX</p>
+<p style="text-align:left; margin:12px 0 4px;">Il existe un entier naturel \(n\) tel que :</p>
+<div class="math-block"><div class="result-box">\[ P(|M_n-\mu|\geq\varepsilon)&lt;\alpha \]</div></div>
+<div class="section-title">À retenir :</div>
+<div class="math-block">\[ V(M_n)=\frac{\sigma^2}{n}\xrightarrow[n\to+\infty]{}0 \]</div>
+<p style="text-align:left; margin:12px 0 4px;">Plus \(n\) augmente, plus \(M_n\) se concentre autour de \(\mu\).</p></div>
 </div>
 <div class="exercise-card">
 <div class="exercise-header" onclick="toggleExercise(this)">
@@ -2410,9 +2468,63 @@ print(n)</pre></div>
 <div class="math-block"><div class="result-box">\[ m=1\ :\ \text{les aires au-dessus et au-dessous de l'axe sont égales} \]</div></div>
 <p class="note-text">Nota : exemple illustratif ; la fonction et les bornes de l'énoncé peuvent différer.</p></div>
 </div>
-</div> <!-- FIN CHAPITRE 12 -->
+</div><!-- ================= INFOS EXTRA ================= -->
+<div class="chapter-content" id="chapter-extra"><h2 style="color: #1e3a8a; margin-bottom: 20px;">Infos extra – FORMULES</h2><div class="exercise-card"><div class="exercise-header" onclick="toggleExercise(this)"><h3>Aire du domaine \(\mathcal D\) : justifier que l'aire est \(I\)</h3><span class="toggle-icon">▼</span></div><div class="exercise-body"><div class="section-title">À retenir :</div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">1. Aire sous une courbe</div>
+<div class="math-block"><div class="result-box">\[ A=\int_a^b f(x)\,dx \qquad (f\geq0) \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">2. Domaine entre deux courbes</div>
+<div class="math-block"><div class="result-box">\[ A=\int_a^b |f(x)-g(x)|\,dx \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">3. Domaine divisé en plusieurs parties</div>
+<div class="math-block"><div class="result-box">\[ A=A_1+A_2+\cdots+A_n \]</div></div>
+<p class="note-text">Nota : l'intégrale et l'expression de \(I\) dépendent de la figure ou de l'énoncé complet.</p></div></div><div class="exercise-card"><div class="exercise-header" onclick="toggleExercise(this)"><h3>Limite de l'aire du domaine \(\mathcal D\) quand \(n\) tend vers \(+\infty\)</h3><span class="toggle-icon">▼</span></div><div class="exercise-body"><div class="section-title">À retenir :</div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">1. Si l'aire dépend de \(n\)</div>
+<div class="math-block"><div class="result-box">\[ A_n=I_n \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">2. Calculer la limite</div>
+<div class="math-block"><div class="result-box">\[ \lim_{n\to+\infty}A_n=\lim_{n\to+\infty}I_n \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">3. Limites usuelles</div>
+<div class="math-block">\[ \lim_{n\to+\infty}\frac1n=0 \]</div>
+<div class="math-block">\[ \lim_{n\to+\infty}\frac1{n^2}=0 \]</div>
+<div class="math-block">\[ \lim_{n\to+\infty}q^n=0\quad(|q|&lt;1) \]</div>
+<div class="math-block">\[ \lim_{n\to+\infty}\left(1+\frac1n\right)^n=e \]</div></div></div><div class="exercise-card"><div class="exercise-header" onclick="toggleExercise(this)"><h3>Vecteurs colinéaires : formules BAC</h3><span class="toggle-icon">▼</span></div><div class="exercise-body"><div class="section-title" style="color: #fbbf24; font-size: 1rem;">1. Définition</div>
+<div class="math-block"><div class="result-box">\[ \vec u\text{ et }\vec v\text{ colinéaires}\iff\exists\,k\in\mathbb R,\ \vec u=k\vec v \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">2. Avec les coordonnées</div>
+<div class="math-block">\[ \vec u(x;y) \qquad \vec v(x';y') \]</div>
+<div class="math-block"><div class="result-box">\[ xy'-yx'=0\iff\vec u\text{ et }\vec v\text{ colinéaires} \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">3. Déterminant</div>
+<div class="math-block">\[ \det(\vec u,\vec v)=xy'-yx' \]</div>
+<div class="math-block">\[ \det=0\Rightarrow\text{colinéaires} \qquad \det\neq0\Rightarrow\text{non colinéaires} \]</div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">4. Montrer que trois points sont alignés</div>
+<div class="math-block">\[ \overrightarrow{AB}=(x_B-x_A\,;\,y_B-y_A) \qquad \overrightarrow{AC}=(x_C-x_A\,;\,y_C-y_A) \]</div>
+<div class="math-block"><div class="result-box">\[ \det(\overrightarrow{AB},\overrightarrow{AC})=0\Rightarrow A,B,C\text{ alignés} \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">5. Équation de droite</div>
+<div class="math-block">\[ y=mx+p \qquad m=\frac{y_B-y_A}{x_B-x_A} \]</div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">6. Distance entre deux points</div>
+<div class="math-block"><div class="result-box">\[ AB=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2} \]</div></div>
+<div class="section-title" style="color: #fbbf24; font-size: 1rem;">7. Milieu d'un segment</div>
+<div class="math-block"><div class="result-box">\[ M\left(\frac{x_A+x_B}{2}\,;\,\frac{y_A+y_B}{2}\right) \]</div></div>
+<div class="section-title">À retenir absolument pour le BAC :</div>
+<div class="math-block"><div class="result-box">\[ xy'-yx'=0 \qquad \text{(colinéarité)} \]</div></div>
+<div class="math-block"><div class="result-box">\[ \det(\overrightarrow{AB},\overrightarrow{AC})=0 \qquad \text{(alignement)} \]</div></div></div></div></div> <!-- FIN CHAPITRE 12 -->
 <!-- SCRIPTS FINALES -->
 <script>
+        function toggleMenu(e) {
+            if (e) e.stopPropagation();
+            const list = document.getElementById('tabsList');
+            const open = list.classList.toggle('open');
+            document.getElementById('menuIcon').textContent = open ? '▲' : '▼';
+            document.getElementById('menuToggle').setAttribute('aria-expanded', open);
+        }
+
+        function closeMenu() {
+            document.getElementById('tabsList').classList.remove('open');
+            document.getElementById('menuIcon').textContent = '▼';
+            document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
+        }
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.tabs-container')) closeMenu();
+        });
+
         function openChapter(chapterNumber, btnElement) {
             const contents = document.querySelectorAll('.chapter-content');
             contents.forEach(content => content.classList.remove('active'));
@@ -2420,8 +2532,12 @@ print(n)</pre></div>
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            document.getElementById(`chapter-${chapterNumber}`).classList.add('active');
+            const chapter = document.getElementById(`chapter-${chapterNumber}`);
+            chapter.classList.add('active');
             btnElement.classList.add('active');
+            document.getElementById('currentChapter').textContent = btnElement.textContent.trim();
+            closeMenu();
+            chapter.scrollIntoView({ block: 'start' });
         }
 
         function toggleExercise(element) {
